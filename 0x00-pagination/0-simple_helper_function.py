@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 """
+This script defines a function to calculate the start and end indices
+for paginating a dataset.
 """
 
 from typing import Tuple
