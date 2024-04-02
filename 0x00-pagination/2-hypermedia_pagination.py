@@ -70,16 +70,16 @@ class Server:
             return []
         return self.dataset()[start_index: end_index]
 
-def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """
         Returns a dictionary containing hypermedia information for the dataset.
 
         Args:
-            page (int): The current page number.
-            page_size (int): The number of items per page.
+        page (int): The current page number.
+        page_size (int): The number of items per page.
 
         Returns:
-            dict: A dictionary containing hypermedia information.
+        dict: A dictionary containing hypermedia information.
         """
 
         assert isinstance(page, int) and page > 0
@@ -92,13 +92,12 @@ def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         if total_pages > current_page:
             next_page = current_page + 1
         else:
-           next_page = None
+            next_page = None
         if current_page > 1:
             previous_page = current_page - 1
         else:
             previous_page = None
-        
-        data_set = self.data_set()
+        data_set = self.dataset()
         return {
             "page_size": len(data),
             "page": current_page,
@@ -106,5 +105,4 @@ def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
             "next_page": next_page,
             "prev_page": previous_page,
             "total_pages": total_pages
-
-        }
+            }
