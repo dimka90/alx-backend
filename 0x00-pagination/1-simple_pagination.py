@@ -14,10 +14,10 @@ class Server:
     Server class to paginate a database of popular baby names.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
-        
+
     def __init__(self):
         self.__dataset = None
-            
+
     def dataset(self) -> List[List]:
         """Cached dataset
         """
@@ -28,7 +28,7 @@ class Server:
             self.__dataset = dataset[1:]
 
         return self.__dataset
-    
+
     @staticmethod
     def index_range(page: int, page_size: int) -> Tuple[int, int]:
         """
@@ -48,7 +48,6 @@ class Server:
 
         return (start_page, end_page)
 
-
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
         Returns the appropriate page of the dataset.
@@ -60,20 +59,13 @@ class Server:
         Returns:
             List[List]: The paginated dataset.
         """
-        
-        assert isinstance(page, int) and page > 0, "Page must be a positive integer"
-        assert isinstance(page_size, int) and page_size > 0, "ddd"
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
         start_index, end_index = self.index_range(page, page_size)
 
         dataset_length = len(self.dataset())
-        
 
         if start_index >= dataset_length:
             return []
-
         return self.dataset()[start_index: end_index]
-
-        
-
-
