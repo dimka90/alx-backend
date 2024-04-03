@@ -35,7 +35,7 @@ class FIFOCache(BaseCache):
         else:
             self.cache_data = OrderedDict(self.cache_data)
             removed_key, removed_value = self.cache_data.popitem(last=False)
-            print("Discard: ", removed_key)
+            print("Discard: {:s}".format(removed_key))
             self.cache_data[key] = item
 
     def get(self, key: str) -> str:
