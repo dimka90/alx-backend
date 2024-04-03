@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+FIFOCache Module
 """
 from collections import OrderedDict
 BaseCache = __import__("0-basic_cache").BasicCache
@@ -7,9 +8,13 @@ BaseCache = __import__("0-basic_cache").BasicCache
 
 class FIFOCache(BaseCache):
     """
+    A Subclass of BasicCache
     """
 
     def __init__(self):
+        """
+            self: Object to be created
+        """
         super().__init__()
 
     def put(self, key: str, item: str) -> None:
