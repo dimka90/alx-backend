@@ -30,7 +30,7 @@ class FIFOCache(BaseCache):
         if key is None or item is None:
             return
         len_cache = len(self.cache_data)
-        if len_cache < self.MAX_ITEMS:
+        if len_cache < BaseCache.MAX_ITEMS:
             self.cache_data[key] = item
         else:
             self.cache_data = OrderedDict(self.cache_data)
