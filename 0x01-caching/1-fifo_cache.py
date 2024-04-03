@@ -32,3 +32,13 @@ class FIFOCache(BaseCache):
             removed_key, removed_value = self.cache_data.popitem(last=False)
             print("Discard: ", removed_key)
             self.cache_data[key] = item
+
+    def get(self, key: str) -> str:
+        """
+        Get an item by key
+        Arguments:
+                key(str): Key pair of the dictionary
+        Return:
+               Stored value of the or None
+        """
+        return self.cache_data.get(key, None)
