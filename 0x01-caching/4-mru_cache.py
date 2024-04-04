@@ -6,7 +6,7 @@ from collections import OrderedDict
 BaseCache = __import__("0-basic_cache").BasicCache
 
 
-class LRUCache(BaseCache):
+class MRUCache(BaseCache):
     """
     A Subclass of BasicCache
     """
