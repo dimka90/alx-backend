@@ -16,6 +16,7 @@ class FIFOCache(BaseCache):
             self: Object to be created
         """
         super().__init__()
+        self.cache_data = OrderedDict()
 
     def put(self, key: str, item: str) -> None:
         """
@@ -33,8 +34,7 @@ class FIFOCache(BaseCache):
         if len_cache < BaseCache.MAX_ITEMS:
             self.cache_data[key] = item
         else:
-            self.cache_data = OrderedDict(self.cache_data)
-            removed_key, removed_value = self.cache_data.popitem(last=False)
+            removed_key, _ = self.cache_data.popitem(last=False)
             print("Discard: {:s}".format(removed_key))
             self.cache_data[key] = item
 
