@@ -16,7 +16,7 @@ class FIFOCache(BaseCache):
             self: Object to be created
         """
         super().__init__()
-        self.cache_data = OrderedDict()
+        self.cache_data = {}
 
     def put(self, key: str, item: str) -> None:
         """
