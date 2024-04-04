@@ -6,7 +6,7 @@ from collections import OrderedDict
 BaseCache = __import__("0-basic_cache").BasicCache
 
 
-class FIFOCache(BaseCache):
+class LIFOCache(BaseCache):
     """
     A Subclass of BasicCache
     """
@@ -35,7 +35,7 @@ class FIFOCache(BaseCache):
             self.cache_data[key] = item
         else:
             removed_key= self.cache_data.pop()
-            print("Discard: {:s}".format(removed_key))
+            print("DISCARD: {:s}".format(removed_key))
             self.cache_data[key] = item
 
     def get(self, key: str) -> str:
