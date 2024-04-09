@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def index() -> html:
+def index():
     """
     Route the index page
     """
