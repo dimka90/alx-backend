@@ -3,9 +3,9 @@
 Localization module
 """
 
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request
 from flask_babel import Babel
-import requests
+
 
 class Config:
     """localization app configuration"""
@@ -25,6 +25,14 @@ babel = Babel(app)
 def index():
     """ Route the index page """
     return render_template('1-index.html',)
+
+
+@babel.localeselector
+def get_locale():
+    """
+    Get Locallangauge set
+    """
+    return request.accept_languages.best_match(app.config())
 
 
 if __name__ == "__main__":
