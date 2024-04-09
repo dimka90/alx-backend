@@ -6,9 +6,6 @@ Localization module
 from flask import Flask
 from flask_babel import Babel
 
-app = Flask(__name__)
-babel = Babel(app)
-
 
 class Config:
     """localization app configuration"""
@@ -17,4 +14,16 @@ class Config:
     DEFAULT_TIME_ZONE = "UTC"
 
 
+app = Flask(__name__)
 app.config.from_object(Config)
+babel = Babel(app)
+
+
+@app.route('/')
+def index():
+    """ Route the index page """
+    return render_template('0-index.html',)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
