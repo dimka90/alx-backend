@@ -24,7 +24,7 @@ babel = Babel(app)
 @app.route('/')
 def index() -> str:
     """ Route the index page """
-    return render_template('4-index.html',)
+    return render_template('3-index.html',)
 
 
 @babel.localeselector
